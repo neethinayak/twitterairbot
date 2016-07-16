@@ -15,7 +15,8 @@ api = twitter.Api(AIRBOT_APP_KEY, AIRBOT_APP_SECRET, AIRBOT_OAUTH_TOKEN, AIRBOT_
 #add time frame of tweet
 #don't tweet when levels are okay
 
-auth_token = ''
+auth_token = os.environ['SUGOISOFT_TOKEN']
+print(auth_token)
 
 #change to long term threshold
 compounds = {

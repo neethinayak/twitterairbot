@@ -1,14 +1,20 @@
 import requests
-#import tweepy
+import twitter
+import os
+
 #import time  
-#APP_KEY = ""  
-#APP_SECRET = ""  
-#OAUTH_TOKEN = ""  
-#OAUTH_TOKEN_SECRET = ""
-#twitter = Twython (APP_KEY, APP_SECRET, PAUTH_TOKEN, OAUTH_TOKEN_SECRET)   
-#api.update_status(tweet)
+
+AIRBOT_APP_KEY = os.environ['AIRBOT_APP_KEY']
+AIRBOT_APP_SECRET = os.environ['AIRBOT_APP_SECRET']
+AIRBOT_OAUTH_TOKEN = os.environ['AIRBOT_OAUTH_TOKEN']
+AIRBOT_OAUTH_TOKEN_SECRET = os.environ['AIRBOT_OAUTH_TOKEN_SECRET']
+
+api = twitter.api(AIRBOT_APP_KEY, AIRBOT_APP_SECRET, AIRBOT_OAUTH_TOKEN, AIRBOT_OAUTH_TOKEN_SECRET)   
+
+#TODO:
 #add time frame of tweet
 #don't tweet when levels are okay
+
 auth_token = ''
 
 #change to long term threshold
@@ -107,12 +113,14 @@ def process_response(data):
             # print ("not monitoring %s..." % compound)
             continue
 
+	tweet = ''
         if total > threshold:
             template = messages[str(pollutant_num)]
-            print (template % total)
+            tweet = (template % total)
         else:
-            print ("%s levels are fine! :D" % compound)
+            tweet = ("%s levels are fine! :D" % compound)
 
+	return tweet
 
 while True:
     response = requests.get(url, headers=headers, params=params)
@@ -121,6 +129,9 @@ while True:
     url = data['next']
     if url is None:
         break
+
+print tweet
+#api.PostUpdate(tweet)
 
 
 

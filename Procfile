@@ -1,1 +1,1 @@
-python3 kuukitest2.py
+worker: python3 kuukitest2.py

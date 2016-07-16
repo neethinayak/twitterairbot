@@ -113,14 +113,14 @@ def process_response(data):
             # print ("not monitoring %s..." % compound)
             continue
 
-	tweet = ''
+        tweet = ''
         if total > threshold:
             template = messages[str(pollutant_num)]
             tweet = (template % total)
         else:
             tweet = ("%s levels are fine! :D" % compound)
 
-	return tweet
+        return tweet
 
 while True:
     response = requests.get(url, headers=headers, params=params)
@@ -130,7 +130,7 @@ while True:
     if url is None:
         break
 
-print tweet
+print (tweet)
 #api.PostUpdate(tweet)
 
 

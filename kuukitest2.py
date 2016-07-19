@@ -73,13 +73,13 @@ compounds = {
 
 #Tweets check characters  
 messages = {
-    "15": "1,3 Butadiene has high levels today at %s! This compound causes respiratory issues. For info:http://bit.ly/2ac7oqn",
-    "25": "Benzene levels at %s are over threshold. This is a carcinogenic compound that can be dangerous. For info: http://bit.ly/29Q4sAu",
-    "38": "Ethylbenzene is known to cause respiratory irritation. Levels are high today at %s. For info: http://bit.ly/29JF2j4",
-    "34": "Toluene levels are over threshold at %s. Toluene harms the nervous system. For info: http://bit.ly/29JFdL4",
-    "40": "Styrene levels are over threshold at %s. Chronic exposure damages the central nervous system. For info: http://bit.ly/29Uzu8x",
-    "41": "o-Xylene levels are over threshold at %s. The compound causes throat and gastro irritation. For info: http://bit.ly/2ac7oqn",
-    "39": "Xylene levels are over threshold at %s. The compound causes throat and gastro irritation. For info: http://bit.ly/2ac7oqn"
+    "15": "1,3 Butadiene levels are high at %s! This may cause respiratory issues. For info:http://bit.ly/2ac7oqn",
+    "25": "Benzene levels at %s are too high. This is a carcinogenic compound. For info: http://bit.ly/29Q4sAu",
+    "38": "Ethylbenzene levels are high today at %s. May cause respiratory issues. For info: http://bit.ly/29JF2j4",
+    "34": "Toluene levels over threshold at %s. Toluene harms the nervous system. For info: http://bit.ly/29JFdL4",
+    "40": "Styrene levels over threshold at %s. Chronic exposure harms nervous system. For info: http://bit.ly/29Uzu8x",
+    "41": "o-Xylene levels over threshold at %s. May cause throat and gastro irritation. For info: http://bit.ly/2ac7oqn",
+    "39": "Xylene levels over threshold at %s. May cause throat and gastro irritation. For info: http://bit.ly/2ac7oqn"
 }
 
 url = 'https://airbot.sugoisoft.com/thresholds'

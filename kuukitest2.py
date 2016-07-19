@@ -16,7 +16,6 @@ api = twitter.Api(AIRBOT_APP_KEY, AIRBOT_APP_SECRET, AIRBOT_OAUTH_TOKEN, AIRBOT_
 #don't tweet when levels are okay
 
 auth_token = os.environ['SUGOISOFT_TOKEN']
-print(auth_token)
 
 #change to long term threshold
 compounds = {
@@ -81,14 +80,13 @@ messages = {
     "39": "Xylene levels are over threshold at %s. The compound causes throat and gastro irritation. For info: https://www3.epa.gov/airtoxics/hlthef/xylenes.html"
 }
 
-url = 'https://airbot.sugoisoft.com/thresholds/'
+url = 'https://airbot.sugoisoft.com/thresholds'
 
 headers = {'Authorization': 'Token ' + auth_token}
 
 # messages.keys() returns the list of keys i.e. "15", "25", "38", "34".... and ",".join() will stringify as "15,25,.."
 params = {'pollutant': ','.join(messages.keys()), 'site_id': '48_201_0026,48_355_0041',  # Specify the site ids you want to monitor here
           'format': 'json'}
-
 
 def process_response(data):
     """
@@ -99,6 +97,7 @@ def process_response(data):
     results = data['results']
 
     for result in results:
+        #print (result)
         pollutant_num = result['pollutant']
         total = float(result['sum'])
         # site_id = str(result['site_id'])  #  Unused
@@ -119,20 +118,23 @@ def process_response(data):
             template = messages[str(pollutant_num)]
             tweet = (template % total)
         else:
-            tweet = ("%s levels are fine! :D" % compound)
+            continue
+            #tweet = ("%s levels are fine! :D" % compound)
 
-        return tweet
+        print (tweet)
+        api.PostUpdate(tweet)
+
+        
 
 while True:
     response = requests.get(url, headers=headers, params=params)
     data = response.json()
-    process_response(data)
+    #print(data)
+    tweet = process_response(data)
+
     url = data['next']
     if url is None:
         break
-
-print (tweet)
-#api.PostUpdate(tweet)
 
 
 

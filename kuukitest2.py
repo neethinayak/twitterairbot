@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import requests
 import twitter
 import os
@@ -71,13 +73,13 @@ compounds = {
 
 #Tweets check characters  
 messages = {
-    "15": "1,3 Butadiene has high levels today at %s! This compound causes respiratory issues. For info:https://www3.epa.gov/airtoxics/hlthef/xylenes.html",
-    "25": "Benzene levels at %s are over threshold. This is a cancer causing compound that is undesirable in the air. For info: https://www3.epa.gov/airtoxics/hlthef/benzene.html",
-    "38": "Ethylbenzene is known to cause respiratory irritation. Levels are high today at %s. For info: https://www3.epa.gov/airtoxics/hlthef/ethylben.html",
-    "34": "Toluene levels are over threshold at %s. This compound damages to the nervous system. For info: https://www3.epa.gov/airtoxics/hlthef/toluene.html",
-    "40": "Styrene levels are over threshold at %s. Chronic exposure damages the central nervous system. For info: https://www3.epa.gov/airtoxics/hlthef/styrene.html",
-    "41": "o-Xylene levels are over threshold at %s. The compound causes throat and gastro irritation. For info: https://www3.epa.gov/airtoxics/hlthef/xylenes.html",
-    "39": "Xylene levels are over threshold at %s. The compound causes throat and gastro irritation. For info: https://www3.epa.gov/airtoxics/hlthef/xylenes.html"
+    "15": "1,3 Butadiene has high levels today at %s! This compound causes respiratory issues. For info:http://bit.ly/2ac7oqn",
+    "25": "Benzene levels at %s are over threshold. This is a carcinogenic compound that can be dangerous. For info: http://bit.ly/29Q4sAu",
+    "38": "Ethylbenzene is known to cause respiratory irritation. Levels are high today at %s. For info: http://bit.ly/29JF2j4",
+    "34": "Toluene levels are over threshold at %s. Toluene harms the nervous system. For info: http://bit.ly/29JFdL4",
+    "40": "Styrene levels are over threshold at %s. Chronic exposure damages the central nervous system. For info: http://bit.ly/29Uzu8x",
+    "41": "o-Xylene levels are over threshold at %s. The compound causes throat and gastro irritation. For info: http://bit.ly/2ac7oqn",
+    "39": "Xylene levels are over threshold at %s. The compound causes throat and gastro irritation. For info: http://bit.ly/2ac7oqn"
 }
 
 url = 'https://airbot.sugoisoft.com/thresholds'

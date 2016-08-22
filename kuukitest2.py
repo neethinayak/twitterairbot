@@ -156,7 +156,7 @@ def process_response(data):
         api.PostUpdate(tweet)
 
         
-
+#TODO Exceptions for repeat tweets 
 while True:
     response = requests.get(url, headers=headers, params=params)
     data = response.json()

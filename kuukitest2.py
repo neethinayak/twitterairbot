@@ -74,7 +74,7 @@ compounds = {
 #Tweets check characters  
 messages = {
     "15": "1,3 Butadiene levels are high at %s! %s ppb. This may cause respiratory issues. For info:http://bit.ly/2ad4I9a",
-    "25": "Benzene levels at %s are too high. %s ppb. This is a carcinogenic compound. For info: http://bit.ly/29Q4sAu",
+    "25": "Average Benzene levels at %s are too high. %s ppb. This is a carcinogenic compound. For info: http://bit.ly/29Q4sAu",
     "38": "Ethylbenzene levels are high today at %s. %s ppb. May cause respiratory issues. For info: http://bit.ly/29JF2j4",
     "34": "Toluene levels over threshold at %s. %s ppb. Toluene harms the nervous system. For info: http://bit.ly/29JFdL4",
     "40": "Styrene levels over threshold at %s. %s ppb. Chronic exposure harms nervous system. For info: http://bit.ly/29Uzu8x",
@@ -82,30 +82,136 @@ messages = {
     "39": "Xylene levels over threshold at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2ac7oqn"
 }
 
-site_ids = {"48_201_0057" : "Galena Park", "48_039_1003": "Clute", "48_039_1004":"Manvel Croix Park", "48_201_0026":"Channelview",
-         "48_039_1004" :"Manvel Croix Park", "48_039_1012" :"Freeport South Avenue I", "48_039_1016" :"Lake Jackson",
-         "48_071_0013" : "Smith Point Hawkins Camp", "48_071_1606" :"UH Smith Point","48_157_0696": "UH Sugarland",
-         "48_167_0004" : "Texas City Fire Station" , "48_167_0005" :"Texas City Ball Park","48_167_0056" :"Texas City 34th Street",
-         "48_167_0571" :"Clear Creek High School" , "48_167_0615" : "Texas City BP 31st Street Site 1", "48_167_0616" :"Texas City BP Onsite (Site 2)","48_167_0621" :"Texas City BP Logan Street (Site 3)",
-         "48_167_0683" :"Texas City 11th Street" , "48_167_0697" : "UH Coastal Center", "48_167_1034" :"Galveston 99th Street",
-         "48_167_5005" :"Galveston Airport KGLS", "48_201_0024" :"Houston Aldine", "48_201_0029" :"Northwest Harris County","48_201_0036" :"Jacinto Port",
-         "48_201_0046" : "Houston North Wayside","48_201_0047" :"Lang", "48_201_0051" :"Houston Croquet",
-         "48_201_0055" :"Houston Bayland Park", "48_201_0058" :"Baytown","48_201_0060": "Houston Kirkpatrick","48_201_0061" :"Shore Acres",
-         "48_201_0062" :"Houston Monroe","48_201_0066" :"Houston Westhollow", "48_201_0069" :"Milby Park",
-         "48_201_0071" : "Pasadena HL&P","48_201_0075" :"Houston Texas Avenue", "48_201_0307" :"Manchester/Central",
-         "48_201_0416" :"Park Place","48_201_0551" :"Sheldon","48_201_0552" :"Baytown Wetlands Center",
-         "48_201_0553" :"Crosby Library","48_201_0554" :"West Houston","48_201_0556" :"La Porte Sylvan Beach",
-         "48_201_0557" :"Mercer Arboretum" ,"48_201_0558" :"Tom Bass" ,"48_201_0559" :"Katy Park",
-         "48_201_0560" :"Atascocita","48_201_0561" :"Meyer Park","48_201_0562" :"Bunker Hill Village",
-         "48_201_0563" :"Huffman Wolf Road","48_201_0570" :"Clear Brook High School","48_201_0572" :"Clear Lake High School",
-         "48_201_0617" :"Wallisville Road","48_201_0669" :"TPC FTIR South","48_201_0670" :"TPC FTIR North",
-         "48_201_0671" :"Goodyear GC","48_201_0673" :"Goodyear Houston Site 2", "48_201_0695" :"UH Moody Tower",
-         "48_201_0803" : "HRM 3 Haden Rd","48_201_1015" :"Lynchburg Ferry","48_201_1017" :"Baytown Garth",
-         "48_201_1034" :"Houston East","48_201_1035" :"Clinton","48_201_1039" :"Houston Deer Park 2",
-         "48_201_1042" :"Kingwood","48_201_1043" :"La Porte Airport C243","48_201_1049" :"Pasadena North",
-         "48_201_1050" :"Seabrook Friendship Park","48_201_1052" :"Houston North Loop","48_201_1066" :"Houston Southwest Freeway",
-         "48_201_6000" :"Cesar Chavez","48_291_0699" :"UH West Liberty","48_339_0078" :"Conroe Relocated",
-         "48_339_0698" :"UH WG Jones Forest","48_339_5006" :"Conroe Airport KCXO","48_471_5012" :"Huntsville KUTS" }
+site_ids = {"48_201_0057" : "Galena Park", "48_039_1003": "Clute", "48_039_1004":
+"Manvel Croix Park", "48_201_0026":
+"Channelview",
+         "48_039_1004" :
+"Manvel Croix Park", "48_039_1012" :
+"Freeport South Avenue I", 
+"48_039_1016" :
+"Lake Jackson",
+         "48_071_0013" : "Smith Point Hawkins Camp", "48_071_1606" :
+"UH Smith Point",
+"48_157_0696": "UH Sugarland",
+         "48_167_0004" : "Texas City Fire Station" , "48_167_0005" :
+"Texas City Ball Park",
+"48_167_0056" :
+"Texas City 34th Street",
+         "48_167_0571" :
+"Clear Creek High School" , "48_167_0615" : "Texas City BP 31st Street Site 1", "48_167_0616" :
+"Texas City BP Onsite (Site 2)",
+"48_167_0621" :
+"Texas City BP Logan Street (Site 3)",
+         "48_167_0683" :
+"Texas City 11th Street" , "48_167_0697" : "UH Coastal Center", 
+"48_167_1034" :
+"Galveston 99th Street",
+         "48_167_5005" :
+"Galveston Airport KGLS", 
+"48_201_0024" :
+"Houston Aldine", 
+"48_201_0029" :
+"Northwest Harris County",
+"48_201_0036" :
+"Jacinto Port",
+         "48_201_0046" : "Houston North Wayside",
+"48_201_0047" :
+"Lang", 
+"48_201_0051" :
+"Houston Croquet",
+         "48_201_0055" :
+"Houston Bayland Park", "48_201_0058" :
+"Baytown",
+"48_201_0060"
+: "Houston Kirkpatrick",
+"48_201_0061" :
+"Shore Acres",
+         "48_201_0062" :
+"Houston Monroe",
+"48_201_0066" :
+"Houston Westhollow", "48_201_0069" :
+"Milby Park",
+         "48_201_0071" : "Pasadena HL&P",
+"48_201_0075" :
+"Houston Texas Avenue", "48_201_0307" :
+"Manchester/Central",
+         "48_201_0416" :
+"Park Place",
+"48_201_0551" :
+"Sheldon",
+"48_201_0552" :
+"Baytown Wetlands Center",
+         "48_201_0553" :
+"Crosby Library",
+"48_201_0554" :
+"West Houston",
+"48_201_0556" :
+"La Porte Sylvan Beach"
+,
+         "48_201_0557" :
+"Mercer Arboretum" ,
+"48_201_0558" :
+"Tom Bass" ,
+"48_201_0559" :
+"Katy Park",
+         "48_201_0560" :
+"Atascocita",
+"48_201_0561" :
+"Meyer Park",
+"48_201_0562" :
+"Bunker Hill Village",
+         "48_201_0563" :
+"Huffman Wolf Road",
+"48_201_0570" :
+"Clear Brook High School",
+"48_201_0572" :
+"Clear Lake High School",
+         "48_201_0617" :
+"Wallisville Road",
+"48_201_0669" :
+"TPC FTIR South",
+"48_201_0670" :
+"TPC FTIR North",
+         "48_201_0671" :
+"Goodyear GC",
+"48_201_0673" :
+"Goodyear Houston Site 2", "48_201_0695" :
+"UH Moody Tower",
+         "48_201_0803" : "HRM 3 Haden Rd",
+"48_201_1015" :
+"Lynchburg Ferry",
+"48_201_1017" :
+"Baytown Garth",
+         "48_201_1034" :
+"Houston East",
+"48_201_1035" :
+"Clinton",
+"48_201_1039" :
+"Houston Deer Park 2",
+         "48_201_1042" :
+"Kingwood",
+"48_201_1043" :
+"La Porte Airport C243",
+"48_201_1049" :
+"Pasadena North",
+         "48_201_1050" :
+"Seabrook Friendship Park",
+"48_201_1052" :
+"Houston North Loop",
+"48_201_1066" :
+"Houston Southwest Freeway",
+         "48_201_6000" :
+"Cesar Chavez",
+"48_291_0699" :
+"UH West Liberty",
+"48_339_0078" :
+"Conroe Relocated",
+         "48_339_0698" :
+"UH WG Jones Forest",
+"48_339_5006" :
+"Conroe Airport KCXO",
+"48_471_5012" :
+"Huntsville KUTS" }
     
 
 url = 'https://airbot.sugoisoft.com/thresholds'
@@ -127,7 +233,7 @@ def process_response(data):
     for result in results:
         #print (result)
         pollutant_num = result['pollutant']
-        total = float(result['sum'])
+        total = float(result['avg'])
         site_id = str(result['site_id'])
         try:
             site_name=site_ids[site_id]

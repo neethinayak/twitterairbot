@@ -247,7 +247,7 @@ def process_response(data):
         # ignore compounds we aren't monitoring
         # With the pollutant(s) now being passed in params
         if threshold == -1:
-            print ("not monitoring %s..." % compound)
+            #print ("not monitoring %s..." % compound)
             continue
 
         tweet = ''
@@ -255,7 +255,7 @@ def process_response(data):
             template = messages[str(pollutant_num)]
             tweet = (template % (site_name,value))
         else:
-            print ("%s levels are fine! :D" % compound)
+            #print ("%s levels are fine! :D" % compound)
             continue
            
         print (tweet)

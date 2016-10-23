@@ -4,7 +4,7 @@ import requests
 import twitter
 import os
 
-#import time  
+#import time
 
 AIRBOT_APP_KEY = os.environ['AIRBOT_APP_KEY']
 AIRBOT_APP_SECRET = os.environ['AIRBOT_APP_SECRET']
@@ -34,7 +34,7 @@ compounds = {
     12: { "Compound" : "Cyclopentane", "Threshold" : -1 },
     13: { "Compound" : "Isopentane", "Threshold" : -1 },
     14: { "Compound" : "n-Pentane", "Threshold" : -1 },
-    15: { "Compound" : "1_3-Butadiene", "Threshold" : 9.1 },
+    15: { "Compound" : "1_3-Butadiene", "Threshold" : -1 },
     16: { "Compound" : "t-2-Pentene", "Threshold" : -1 },
     17: { "Compound" : "1-Pentene", "Threshold" : -1 },
     18: { "Compound" : "c-2-Pentene", "Threshold" : -1 },
@@ -44,7 +44,7 @@ compounds = {
     22: { "Compound" : "n-He-1ane", "Threshold" : -1 },
     23: { "Compound" : "Methylcyclopentane", "Threshold" : -1 },
     24: { "Compound" : "2_4-Dimethylpentane", "Threshold" : -1 },
-    25: { "Compound" : "Benzene", "Threshold" : 1.4 },
+    25: { "Compound" : "Benzene", "Threshold" : .4 },
     26: { "Compound" : "Cyclohe-1ane", "Threshold" : -1 },
     27: { "Compound" : "2-Methylhe-1ane", "Threshold" : -1 },
     28: { "Compound" : "2_3-Dimethylpentane", "Threshold" : -1 },
@@ -53,14 +53,14 @@ compounds = {
     31: { "Compound" : "n-Heptane", "Threshold" : -1 },
     32: { "Compound" : "Methylcyclohe-1ane", "Threshold" : -1 },
     33: { "Compound" : "2_3_4-Trimethylpentane", "Threshold" : -1 },
-    34: { "Compound" : "Toluene", "Threshold" : 1100 },
+    34: { "Compound" : "Toluene", "Threshold" : 1.65 },
     35: { "Compound" : "2-Methylheptane", "Threshold" : -1 },
     36: { "Compound" : "3-Methylheptane", "Threshold" : -1 },
     37: { "Compound" : "n-Octane", "Threshold" : -1 },
-    38: { "Compound" : "Ethyl Benzene", "Threshold" : 450 },
-    39: { "Compound" : "p-Xylene + m-Xylene", "Threshold" : 140 },
-    40: { "Compound" : "Styrene", "Threshold" : 110},
-    41: { "Compound" : "o-Xylene", "Threshold" : 140 },
+    38: { "Compound" : "Ethyl Benzene", "Threshold" : .6 },
+    39: { "Compound" : "p-Xylene + m-Xylene", "Threshold" : -1 },
+    40: { "Compound" : "Styrene", "Threshold" : -1 },
+    41: { "Compound" : "o-Xylene", "Threshold" : .5 },
     42: { "Compound" : "n-Nonane", "Threshold" : -1 },
     43: { "Compound" : "Isopropyl Benzene - Cumene", "Threshold" : -1 },
     44: { "Compound" : "n-Propylbenzene", "Threshold" : -1 },
@@ -74,12 +74,12 @@ compounds = {
 #Tweets check characters  
 messages = {
     "15": "1,3 Butadiene levels are high at %s! %s ppb. This may cause respiratory issues. For info:http://bit.ly/2ad4I9a",
-    "25": "Average Benzene levels at %s are too high. %s ppb. This is a carcinogenic compound. For info: http://bit.ly/29Q4sAu",
-    "38": "Ethylbenzene levels are high today at %s. %s ppb. May cause respiratory issues. For info: http://bit.ly/29JF2j4",
-    "34": "Toluene levels over threshold at %s. %s ppb. Toluene harms the nervous system. For info: http://bit.ly/29JFdL4",
-    "40": "Styrene levels over threshold at %s. %s ppb. Chronic exposure harms nervous system. For info: http://bit.ly/29Uzu8x",
-    "41": "o-Xylene levels over threshold at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2ac7oqn",
-    "39": "Xylene levels over threshold at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2ac7oqn"
+    "25": "Benzene outlier at %s. %s ppb. This is a carcinogenic compound. For info: http://bit.ly/29Q4sAu",
+    "38": "Ethylbenzene outlier at %s. %s ppb. May cause respiratory issues. For info: http://bit.ly/29JF2j4",
+    "34": "Toluene levels outlier at %s. %s ppb. Toluene harms the nervous system. For info: http://bit.ly/29JFdL4",
+    "40": "Styrene level outlier at %s. %s ppb. Chronic exposure harms nervous system. For info: http://bit.ly/29Uzu8x",
+    "41": "o-Xylene level outlier at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2ac7oqn",
+    "39": "Xylene levels outlier at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2ac7oqn"
 }
 
 site_ids = {"48_201_0057" : "Galena Park", "48_039_1003": "Clute", "48_039_1004":
@@ -214,13 +214,13 @@ site_ids = {"48_201_0057" : "Galena Park", "48_039_1003": "Clute", "48_039_1004"
 "Huntsville KUTS" }
     
 
-url = 'https://airbot.sugoisoft.com/thresholds'
+url = 'https://airbot.sugoisoft.com/readings'
 
 headers = {'Authorization': 'Token ' + auth_token}
-
+page = 1 
 # messages.keys() returns the list of keys i.e. "15", "25", "38", "34".... and ",".join() will stringify as "15,25,.."
-params = {'pollutant': ','.join(messages.keys()), 'site_ids': ','.join(site_ids.keys()),
-          'format': 'json'}
+params = {'pollutant': ','.join(messages.keys()), 'site_id': ','.join(site_ids.keys()),
+          'format': 'json', 'page':page}
 
 def process_response(data):
     """
@@ -233,8 +233,8 @@ def process_response(data):
     for result in results:
         #print (result)
         pollutant_num = result['pollutant']
-        total = float(result['avg'])
-        site_id = str(result['site_id'])
+        value = float(result['value'])
+        site_id = str(result['location']['site_id'])
         try:
             site_name=site_ids[site_id]
         except KeyError:
@@ -247,30 +247,34 @@ def process_response(data):
         # ignore compounds we aren't monitoring
         # With the pollutant(s) now being passed in params
         if threshold == -1:
-            # print ("not monitoring %s..." % compound)
+            print ("not monitoring %s..." % compound)
             continue
 
         tweet = ''
-        if total > threshold:
+        if value > threshold:
             template = messages[str(pollutant_num)]
-            tweet = (template % (site_name,total))
+            tweet = (template % (site_name,value))
         else:
+            print ("%s levels are fine! :D" % compound)
             continue
-            #tweet = ("%s levels are fine! :D" % compound)
-
+           
         print (tweet)
         api.PostUpdate(tweet)
 
         
 #TODO Exceptions for repeat tweets 
 while True:
+    params['page'] = page 
     response = requests.get(url, headers=headers, params=params)
+    # response = requests.get(url, headers=headers, params=params)
+    print (response)
+    if not response:
+        break
     data = response.json()
-    #print(data)
-    tweet = process_response(data)
-
-    url = data['next']
-    if url is None:
+    print(data)
+    process_response(data)
+    page += 1 
+    if data['next'] is None:
         break
 
 

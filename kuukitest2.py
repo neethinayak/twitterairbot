@@ -259,7 +259,10 @@ def process_response(data):
             continue
            
         print (tweet)
-        api.PostUpdate(tweet)
+        try:
+            api.PostUpdate(tweet)
+        except:
+            pass 
 
         
 #TODO Exceptions for repeat tweets 

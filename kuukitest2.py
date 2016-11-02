@@ -44,7 +44,7 @@ compounds = {
     22: { "Compound" : "n-He-1ane", "Threshold" : -1 },
     23: { "Compound" : "Methylcyclopentane", "Threshold" : -1 },
     24: { "Compound" : "2_4-Dimethylpentane", "Threshold" : -1 },
-    25: { "Compound" : "Benzene", "Threshold" : .4 },
+    25: { "Compound" : "Benzene", "Threshold" : 3 },
     26: { "Compound" : "Cyclohe-1ane", "Threshold" : -1 },
     27: { "Compound" : "2-Methylhe-1ane", "Threshold" : -1 },
     28: { "Compound" : "2_3-Dimethylpentane", "Threshold" : -1 },

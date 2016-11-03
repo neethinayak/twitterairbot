@@ -74,12 +74,12 @@ compounds = {
 #Tweets check characters  
 messages = {
     "15": "1,3 Butadiene warning at %s! %s ppb. This may cause respiratory issues. For info:http://bit.ly/2ad4I9a",
-    "25": "Benzene warning at %s. %s ppb. This is a carcinogenic compound. For info: http://bit.ly/29Q4sAu",
-    "38": "Ethylbenzene warning at %s. %s ppb. May cause respiratory issues. For info: http://bit.ly/2eMIXi1",
-    "34": "Toluene level warning at %s. %s ppb. Toluene harms the nervous system. For info: http://bit.ly/2ezVKbj",
+    "25": "Benzene warning at %s. %s ppb. This is a carcinogenic compound. For info: http://bit.ly/2eEYYWu",
+    "38": "Ethylbenzene warning at %s. %s ppb. May cause respiratory issues. For info: http://bit.ly/2fhqEUF",
+    "34": "Toluene level warning at %s. %s ppb. Toluene harms the nervous system. For info: http://bit.ly/2ejphjK",
     "40": "Styrene level warning at %s. %s ppb. Chronic exposure harms nervous system. For info: http://bit.ly/29Uzu8x",
-    "41": "o-Xylene level warning at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2dEh3Yk",
-    "39": "Xylene levels warning at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2dEh3Yk"
+    "41": "o-Xylene level warning at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2esXjFy",
+    "39": "Xylene levels warning at %s. %s ppb. May cause throat and gastro irritation. For info: http://bit.ly/2esXjFy"
 }
 
 site_ids = {"48_201_0057" : "Galena Park", "48_039_1003": "Clute", "48_039_1004":
